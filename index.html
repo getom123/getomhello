@@ -160,11 +160,6 @@
           Send Message
         </button>
       </form>
-
-       <!-- Thank You Message (Initially Hidden) -->
-  <div id="thank-you-message" class="hidden text-center text-orange-700 text-lg font-semibold">
-    Thank you for your message! We’ll get back to you shortly.
-  </div>
     </div>
   </section>
 
@@ -213,37 +208,6 @@
     });
 
 
-    const form = document.getElementById('contact-form');
-  const thankYouMessage = document.getElementById('thank-you-message');
-
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault(); // Prevent the default form submission behavior
-
-    // Optionally, show a loading state (optional)
-    form.innerHTML = `<div class="text-center text-orange-700">Sending...</div>`;
-
-    try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: form.method,
-        headers: {
-          'Accept': 'application/json'
-        },
-        body: formData
-      });
-
-      if (response.ok) {
-        // Hide the form and show the thank-you message
-        form.classList.add('hidden');
-        thankYouMessage.classList.remove('hidden');
-      } else {
-        throw new Error('Form submission failed');
-      }
-    } catch (error) {
-      // Handle errors (optional)
-      form.innerHTML = `<div class="text-center text-red-700">Oops! Something went wrong. Please try again.</div>`;
-    }
-  });
   </script>
 </body>
 </html>
