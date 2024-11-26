@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* list-style: none; */
+    box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: linear-gradient(to right, #442202, #241000, #000);
+    margin: 0;
+    color: white;
+}
+.header img{
+    width: 500px;
+    height: auto;
+}
+.text h1{
+    font-size: 10vw;
+    font-family: Happy Graduation Shadow;
+}
+.sub_ht, .glass-like{
+    /* padding: 10px; */
+    background: rgba(255, 255, 255, 0.2); /* White with transparency */
+    backdrop-filter: blur(10px); /* Blur effect for the background */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    /* border: 1px solid rgba(255, 255, 255, 0.3); Light border for definition */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(235, 232, 232, 0.1); /* Subtle shadow for depth */
+}
+.sub_ht{
+    padding: 50px;
+}
+.how_to ul{
+    list-style: decimal-leading-zero;
+}
+.how_to ol{
+    list-style: disc;
+    margin-left: 20px;
+}
