@@ -38,3 +38,10 @@ body {
     list-style: disc;
     margin-left: 20px;
 }
+.social-icons a {
+    transition: transform 0.2s ease-in-out; /* Smooth scaling on hover */
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Slightly enlarge icons on hover */
+}
