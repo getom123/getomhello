@@ -19,7 +19,7 @@ body {
     font-size: 10vw;
     font-family: Happy Graduation Shadow;
 }
-.sub_ht, .glass-like{
+.sub_ht, .glass-like, .the_event_card{
     /* padding: 10px; */
     background: rgba(255, 255, 255, 0.2); /* White with transparency */
     backdrop-filter: blur(10px); /* Blur effect for the background */
@@ -44,4 +44,21 @@ body {
 
 .social-icons a:hover {
     transform: scale(1.2); /* Slightly enlarge icons on hover */
+}
+.the_event{
+    padding: 10px;
+    margin: 10px;
+    gap: 10px;
+}
+.the_event_card a:hover{
+    opacity: 0.2;
+}
+
+@media screen and (max-width: 952px) {
+    .the_event{
+        flex-direction: column;
+    }
+    .the_event_card{
+        margin: 10px;
+    }
 }
