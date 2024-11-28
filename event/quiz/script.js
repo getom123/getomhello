@@ -114,7 +114,8 @@ function endQuiz() {
   
     // Randomly select a reward
     const rewardOptions = [
-      `<p>Your Promo Code: <strong>${generatePromoCode()}</strong></p>`,
+     `<p>Get 25% Off Your Data Purchase Using Your Promo Code: <strong>${generatePromoCode()}</strong></p>
+        <p><a href="https://wa.me/08156213617?text=Hello!%20My%20Promo%20Code%20is%20${generatePromoCode()}" target="_blank" class="claim-link">Claim Reward</a></p>`,
       `
         <form id="rewardForm">
           <label for="phone">Phone Number:</label>
@@ -141,9 +142,15 @@ function endQuiz() {
         const phone = document.getElementById("phone").value;
         const network = document.getElementById("network").value;
   
-        // Simulate sending data to email (needs backend for actual functionality)
-        alert(`Details submitted! Phone: ${phone}, Network: ${network}`);
-        rewardSection.innerHTML = "<p>Thank you! Your reward will be sent soon.</p>";
+        // Create WhatsApp link with form data
+        const message = `Hello! I am submitting my details for the reward.%0APhone Number: ${phone}%0ANetwork: ${network}`;
+        const whatsappLink = `https://wa.me/08156213617?text=${message}`;
+  
+        // Redirect to WhatsApp
+        window.open(whatsappLink, "_blank");
+  
+        // Thank the user
+        rewardSection.innerHTML = "<p>Thank you! Your details have been submitted via WhatsApp.</p>";
       });
     }
   }
