@@ -13,39 +13,29 @@ const questions = [
   
   let currentQuestionIndex = 0;
   let score = 0;
-  let timeLeft = 5;
+  let questionTimeLeft = 5; // Time per question in seconds
+  let totalTimeLeft = questions.length * questionTimeLeft; // Total time for the quiz
   let timerInterval;
   
   const questionBox = document.getElementById("question-box");
-  const nextButton = document.getElementById("next-btn");
   const scoreBox = document.getElementById("score-box");
   const rewardSection = document.getElementById("reward-section");
   const timeDisplay = document.getElementById("time");
+  const totalTimeDisplay = document.getElementById("total-time");
   
-  // Check if the quiz has already been accessed
-  // function checkQuizAccess() {
-  //   const lastAccess = localStorage.getItem("quizLastAccess");
-  //   const now = new Date().getTime();
-  
-  //   if (lastAccess && now - lastAccess < 24 * 60 * 60 * 1000) {
-  //     questionBox.innerHTML = `<p>Oops! You can only attempt this quiz once per day. Try again tomorrow!</p>`;
-  //     nextButton.style.display = "none";
-  //     return false;
-  //   }
-  
-  //   // Store current access time
-  //   localStorage.setItem("quizLastAccess", now);
-  //   return true;
-  // }
-  
-  // Shuffle questions
   const shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   
   // Load the first question
   function loadQuestion() {
+    if (currentQuestionIndex >= shuffledQuestions.length || totalTimeLeft <= 0) {
+      endQuiz();
+      return;
+    }
+  
     clearInterval(timerInterval);
-    timeLeft = 5;
-    timeDisplay.textContent = timeLeft;
+    questionTimeLeft = 5; // Reset question timer
+    updateTimeDisplay();
+  
     const question = shuffledQuestions[currentQuestionIndex];
     questionBox.innerHTML = `
       <p>${question.question}</p>
@@ -53,6 +43,7 @@ const questions = [
     `;
     document.querySelectorAll(".option-btn").forEach(button => {
       button.addEventListener("click", () => {
+        clearInterval(timerInterval);
         if (button.textContent === question.answer) {
           score++;
           button.style.backgroundColor = "#16a34a";
@@ -60,44 +51,45 @@ const questions = [
           button.style.backgroundColor = "#dc2626";
         }
         document.querySelectorAll(".option-btn").forEach(btn => btn.disabled = true);
-        nextButton.disabled = false;
+        setTimeout(nextQuestion, 1000); // Move to the next question after 1 second
       });
     });
-    startTimer();
+  
+    startQuestionTimer();
   }
   
-  // Start timer
-  function startTimer() {
+  // Start the question timer
+  function startQuestionTimer() {
     timerInterval = setInterval(() => {
-      timeLeft--;
-      timeDisplay.textContent = timeLeft;
-      if (timeLeft <= 0) {
+      questionTimeLeft--;
+      totalTimeLeft--;
+      updateTimeDisplay();
+  
+      if (questionTimeLeft <= 0) {
         clearInterval(timerInterval);
-        nextButton.disabled = false;
-        document.querySelectorAll(".option-btn").forEach(btn => btn.disabled = true);
+        nextQuestion(); // Automatically move to the next question
       }
     }, 1000);
   }
   
-  // Next question or end quiz
-  nextButton.addEventListener("click", () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < shuffledQuestions.length) {
-      nextButton.disabled = true;
-      loadQuestion();
-    } else {
-      endQuiz();
-    }
-  });
+  // Update the timer display
+  function updateTimeDisplay() {
+    timeDisplay.textContent = `Time Left (Question): ${questionTimeLeft}s`;
+    totalTimeDisplay.textContent = `Total Time Left: ${totalTimeLeft}s`;
+  }
   
- // End quiz
-function endQuiz() {
+  // Move to the next question
+  function nextQuestion() {
+    currentQuestionIndex++;
+    loadQuestion();
+  }
+  
+  // End the quiz
+  function endQuiz() {
     clearInterval(timerInterval);
     const percentageScore = (score / shuffledQuestions.length) * 100;
     scoreBox.innerHTML = `You scored ${percentageScore.toFixed(0)}%!`;
     questionBox.innerHTML = "";
-  
-    nextButton.style.display = "none"; // Hide the next button
   
     if (percentageScore >= 90) {
       showReward();
@@ -106,16 +98,16 @@ function endQuiz() {
     }
   }
   
+  
   // Show a reward
   function showReward() {
-    if (rewardSection.innerHTML !== "") return; // Prevent multiple rewards
+    if (rewardSection.innerHTML !== "") return;
+    const varies1 = "getom29";
   
     rewardSection.style.display = "block";
-  
-    // Randomly select a reward
     const rewardOptions = [
-     `<p>Get 25% Off Your Data Purchase Using Your Promo Code: <strong>${generatePromoCode()}</strong></p>
-        <p><a href="https://wa.me/08156213617?text=Hello!%20My%20Promo%20Code%20is%20${generatePromoCode()}" target="_blank" class="claim-link">Claim Reward</a></p>`,
+      `<p>Get 25% Off Your Data Purchase Using Your Promo Code: <strong>${generatePromoCode()}</strong></p>
+       <p><a href="https://wa.me/08156213617?text=Hello!%20${varies1}%20My%20Promo%20Code%20is%20${generatePromoCode()}" target="_blank" class="claim-link">Claim Reward</a></p>`,
       `
         <form id="rewardForm">
           <label for="phone">Phone Number:</label>
@@ -132,7 +124,6 @@ function endQuiz() {
         </form>
       `
     ];
-  
     const randomReward = rewardOptions[Math.floor(Math.random() * rewardOptions.length)];
     rewardSection.innerHTML = randomReward;
   
@@ -142,14 +133,10 @@ function endQuiz() {
         const phone = document.getElementById("phone").value;
         const network = document.getElementById("network").value;
   
-        // Create WhatsApp link with form data
-        const message = `Hello! I am submitting my details for the reward.%0APhone Number: ${phone}%0ANetwork: ${network}`;
+        const message = `Hello! ${varies1} I am submitting my details for the reward.%0APhone Number: ${phone}%0ANetwork: ${network}`;
         const whatsappLink = `https://wa.me/08156213617?text=${message}`;
   
-        // Redirect to WhatsApp
         window.open(whatsappLink, "_blank");
-  
-        // Thank the user
         rewardSection.innerHTML = "<p>Thank you! Your details have been submitted via WhatsApp.</p>";
       });
     }
@@ -160,9 +147,6 @@ function endQuiz() {
     return `GETOM${Math.floor(100000 + Math.random() * 900000)}`;
   }
   
-  
-  // Start quiz
-  // if (checkQuizAccess()) {
-    loadQuestion();
-  // }
+  // Start the quiz
+  loadQuestion();
   

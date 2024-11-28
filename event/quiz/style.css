@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f3f4f6;
@@ -6,21 +7,46 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 10px;
     margin: 0;
+    flex-direction: column;
+    animation: colorChange 5s infinite alternate;
+  }
+
+  @keyframes colorChange {
+      0% {
+          background-color: #faf9e0; /* Light Blue */
+      }
+      25% {
+          background-color: #faf5b6; /* Light Green */
+      }
+      50% {
+          background-color: #fff1c1; /* Light Orange */
+      }
+      75% {
+          background-color: #ffe9c0; /* Light Purple */
+      }
+      100% {
+          background-color: #ffd6c4; /* Back to Light Blue */
+      }
   }
   
-  .quiz-container {
+  .quiz-container, .about {
     text-align: center;
-    background-color: #ffffff;
+    background: rgba(255, 255, 255, 0.2); /* White with transparency */
+    backdrop-filter: blur(10px); /* Blur effect for the background */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /*Light border for definition*/
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(31, 31, 31, 0.1); /* Subtle shadow for depth */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 400px;
   }
   
   h1 {
-    color: #1d4ed8;
+    color: #ff5100;
   }
   
   #timer {
@@ -33,8 +59,8 @@ body {
     margin: 20px 0;
   }
   
-  button {
-    background-color: #1d4ed8;
+  button, .btn {
+    background-color: #ff5100;
     color: #ffffff;
     border: none;
     margin: 5px;
@@ -42,7 +68,13 @@ body {
     font-size: 1em;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    transition: all ease-in-out 1s;
   }
+
+  button:hover, .btn:hover{
+    background-color: #ffba9a;
+  } 
   
   button:disabled {
     background-color: #9ca3af;
@@ -58,7 +90,7 @@ body {
     margin-top: 20px;
     text-align: center;
     font-size: 1.1em;
-    color: #16a34a;
+    color: #ff5100;
   }
   
   #reward-section form {
@@ -72,5 +104,9 @@ body {
     padding: 10px;
     font-size: 1em;
   }
-  
+  /* .lastly{
+    position: fixed;
+    bottom: 0;
+  }
+   */
   
