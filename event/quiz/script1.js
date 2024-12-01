@@ -104,15 +104,15 @@ const questions = [
   function showReward() {
       if (rewardSection.innerHTML !== "") return;
 
+      const varies = "getom29";
       // Generate a random lucky number for the user
       const userLuckyNumber = Math.floor(Math.random() * 100) + 1;
 
       rewardSection.style.display = "block";
       rewardSection.innerHTML = `
           <p>Your Lucky Number is: <strong>${userLuckyNumber}</strong></p>
-          <p>Keep this number safe! The winning number will be announced later.</p>
-          <p>You can submit your lucky number for verification on WhatsApp:</p>
-          <a href="https://wa.me/09161438315?text=Hello!%20My%20Lucky%20Number%20is%20${userLuckyNumber}" 
+          <p>You can submit your lucky number if it is among the numbers above for verification on WhatsApp:</p>
+          <a href="https://wa.me/09161438315?text=Hello!%20${varies}%20My%20Lucky%20Number%20is%20${userLuckyNumber}" 
             target="_blank" 
             class="claim-link">Submit My Lucky Number</a>
       `;
