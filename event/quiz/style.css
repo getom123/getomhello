@@ -103,8 +103,13 @@ body {
   }
 
   .move{
+    position: fixed;
+    top: 0;
+    background: #fff5e4;
+    padding: 10px;
     margin-top: 20px;
   }
+
   
  .winning_numbers span{
   padding: 5px 10px;
@@ -121,4 +126,37 @@ body {
   border-radius: 10px;
   width: 90%;
   min-width: 80%;
+}
+
+.snowflakes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+      transform: translateY(-10px);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(100vh);
+      opacity: 0.5;
+  }
 }

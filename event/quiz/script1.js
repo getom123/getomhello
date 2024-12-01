@@ -14,7 +14,7 @@ const questions = [
   
   let currentQuestionIndex = 0;
   let score = 0;
-  let questionTimeLeft = 5; // Time per question in seconds
+  let questionTimeLeft = 10; // Time per question in seconds
   let totalTimeLeft = questions.length * questionTimeLeft; // Total time for the quiz
   let timerInterval;
   
@@ -34,7 +34,7 @@ const questions = [
     }
   
     clearInterval(timerInterval);
-    questionTimeLeft = 5; // Reset question timer
+    questionTimeLeft = 10; // Reset question timer
     updateTimeDisplay();
   
     const question = shuffledQuestions[currentQuestionIndex];
@@ -92,7 +92,7 @@ const questions = [
     scoreBox.innerHTML = `You scored ${percentageScore.toFixed(0)}%!`;
     questionBox.innerHTML = "";
   
-    if (percentageScore >= 90) {
+    if (percentageScore >= 70) {
       showReward();
     } else {
       questionBox.innerHTML = "<p>Oops! Try again tomorrow!</p>";
