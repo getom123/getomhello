@@ -1,3 +1,4 @@
+
 const questions = [
     { question: "What is the goal of Getom?", options: ["Next-gen tech solutions", "Fashion", "Banking", "Sports"], answer: "Next-gen tech solutions" },
     { question: "Which is a Getom subsidiary?", options: ["Hi-Dev", "Tech-Bank", "NeoHub", "CodeSphere"], answer: "Hi-Dev" },
@@ -99,48 +100,41 @@ const questions = [
   }
   
   
-  // Show a reward
+  // Show a lucky number reward
   function showReward() {
-    if (rewardSection.innerHTML !== "") return;
-    const varies1 = "getom29";
-  
-    rewardSection.style.display = "block";
-    const rewardOptions = [
-      `<p>Get 25% Off Your Data Purchase Using Your Promo Code: <strong>${generatePromoCode()}</strong></p>
-       <p><a href="https://wa.me/08156213617?text=Hello!%20${varies1}%20My%20Promo%20Code%20is%20${generatePromoCode()}" target="_blank" class="claim-link">Claim Reward</a></p>`,
-      `
-        <form id="rewardForm">
-          <label for="phone">Phone Number:</label>
-          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-          <label for="network">Network Provider:</label>
-          <select id="network" name="network" required>
-            <option value="">Select Network</option>
-            <option value="MTN">MTN</option>
-            <option value="Airtel">Airtel</option>
-            <option value="Glo">Glo</option>
-            <option value="9mobile">9mobile</option>
-          </select>
-          <button type="submit">Submit</button>
-        </form>
-      `
-    ];
-    const randomReward = rewardOptions[Math.floor(Math.random() * rewardOptions.length)];
-    rewardSection.innerHTML = randomReward;
-  
-    if (randomReward.includes("form")) {
-      document.getElementById("rewardForm").addEventListener("submit", (e) => {
+      if (rewardSection.innerHTML !== "") return;
+
+      // Generate a random lucky number for the user
+      const userLuckyNumber = Math.floor(Math.random() * 100) + 1;
+
+      rewardSection.style.display = "block";
+      rewardSection.innerHTML = `
+          <p>Your Lucky Number is: <strong>${userLuckyNumber}</strong></p>
+          <p>Keep this number safe! The winning number will be announced later.</p>
+          <p>You can submit your lucky number for verification on WhatsApp:</p>
+          <a href="https://wa.me/09161438315?text=Hello!%20My%20Lucky%20Number%20is%20${userLuckyNumber}" 
+            target="_blank" 
+            class="claim-link">Submit My Lucky Number</a>
+      `;
+
+
+    document.getElementById("luckyNumberForm").addEventListener("submit", (e) => {
         e.preventDefault();
-        const phone = document.getElementById("phone").value;
-        const network = document.getElementById("network").value;
-  
-        const message = `Hello! ${varies1} I am submitting my details for the reward.%0APhone Number: ${phone}%0ANetwork: ${network}`;
+        const userNumber = parseInt(document.getElementById("luckyNumber").value, 10);
+        const message = `Hello! I am submitting my lucky number.%0AMy Lucky Number: ${userNumber}%0A(Lucky Number was ${luckyNumber})`;
+
+        if (userNumber === luckyNumber) {
+            alert("Congratulations! You've guessed the lucky number!");
+        } else {
+            alert(`Oops! The lucky number was ${luckyNumber}. Try again tomorrow.`);
+        }
+
         const whatsappLink = `https://wa.me/08156213617?text=${message}`;
-  
         window.open(whatsappLink, "_blank");
-        rewardSection.innerHTML = "<p>Thank you! Your details have been submitted via WhatsApp.</p>";
-      });
-    }
-  }
+        rewardSection.innerHTML = "<p>Thank you! Your lucky number has been submitted via WhatsApp.</p>";
+    });
+}
+
   
   // Generate a random promo code
   function generatePromoCode() {

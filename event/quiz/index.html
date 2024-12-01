@@ -7,12 +7,20 @@
   <link rel="stylesheet" href="style.css">
     <!-- Favicon (Logo for title bar) -->
     <link rel="icon" type="image/png" href="../../media/gw1.png">  <!-- Update this path -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
 </head>
 <body>
  
-  <div class="quiz-container">
-    <div class="move">
-      <marquee behavior="" direction="">Merry Christmas and happy new year From Getom hi-tech</marquee>
+  <div class="quiz-container" id="game-container">
+    <div class="winning_numbers">
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+      <span>5</span> 
     </div>
     <h1>Getom Quiz</h1>
     <div id="time">Time Left (Question): 5s</div>
@@ -20,11 +28,34 @@
     <div id="question-box"></div>
     <div id="score-box"></div>
     <div id="reward-section" style="display:none;"></div>
+
+
+    <div id="countdown-overlay" style="display: flex; justify-content: center; align-items: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0); color: white; font-size: 48px; z-index: 9999;">
+      <span id="countdown-number"></span>
+    </div>
+  
+    <!-- The rest of your quiz content -->
+    <div id="quiz-content" style="display: none;">
+        <!-- Quiz content goes here -->
+        <div id="question-box"></div>
+        <div id="score-box"></div>
+        <div id="reward-section"></div>
+        <div id="time"></div>
+        <div id="total-time"></div>
+    </div>
+  
+  </div>
+  <div id="message-container"></div>
+
+  <div class="move">
+    <marquee behavior="" direction="">Merry Christmas and happy new year From Getom hi-tech</marquee>
   </div>
 
   <div class="lastly">
     <p>powered by © GETOM (Season Sparkel 2024)</p>
   </div>
+
+  <script src="script.js"></script>
   <script src="script1.js"></script>
 </body>
 </html>

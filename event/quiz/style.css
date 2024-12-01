@@ -1,12 +1,12 @@
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Parkinsans", sans-serif;
     background-color: #f3f4f6;
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     padding: 10px;
     margin: 0;
     flex-direction: column;
@@ -14,33 +14,30 @@ body {
   }
 
   @keyframes colorChange {
-      0% {
-          background-color: #faf9e0; /* Light Blue */
-      }
-      25% {
-          background-color: #faf5b6; /* Light Green */
-      }
-      50% {
-          background-color: #fff1c1; /* Light Orange */
-      }
-      75% {
-          background-color: #ffe9c0; /* Light Purple */
-      }
-      100% {
-          background-color: #ffd6c4; /* Back to Light Blue */
-      }
-  }
+    0% {
+        background-color: #fff7eb; /* Very Light Peach */
+    }
+    25% {
+        background-color: #fff2e0; /* Very Light Apricot */
+    }
+    50% {
+        background-color: #ffe8d1; /* Light Orange Cream */
+    }
+    75% {
+        background-color: #ffedd6; /* Soft Light Orange */
+    }
+    100% {
+        background-color: #fff5e4; /* Back to Very Light Peach */
+    }
+}
+
   
-  .quiz-container, .about {
+  .quiz-container{
     text-align: center;
-    background: rgba(255, 255, 255, 0.2); /* White with transparency */
-    backdrop-filter: blur(10px); /* Blur effect for the background */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    border: 1px solid rgba(255, 255, 255, 0.3); /*Light border for definition*/
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(31, 31, 31, 0.1); /* Subtle shadow for depth */
+    background: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
+    box-shadow:  0px 2px 8px #d1a692;
     width: 90%;
     max-width: 400px;
   }
@@ -73,7 +70,7 @@ body {
   }
 
   button:hover, .btn:hover{
-    background-color: #ffba9a;
+    background-color: #c74002;
   } 
   
   button:disabled {
@@ -104,9 +101,24 @@ body {
     padding: 10px;
     font-size: 1em;
   }
-  /* .lastly{
-    position: fixed;
-    bottom: 0;
+
+  .move{
+    margin-top: 20px;
   }
-   */
   
+ .winning_numbers span{
+  padding: 5px 10px;
+  /* border: 2px solid #f7a985; */
+  background: #ffdbca;
+  border-radius: 50%;
+ }
+.about {
+  text-align: justify;
+ background: #fff;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(31, 31, 31, 0.1); /* Subtle shadow for depth */
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  min-width: 80%;
+}
