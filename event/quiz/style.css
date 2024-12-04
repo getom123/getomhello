@@ -37,7 +37,7 @@ body {
     background: #fff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow:  0px 2px 8px #d1a692;
+    /* box-shadow:  0px 2px 8px #d1a692; */
     width: 90%;
     max-width: 400px;
   }
@@ -119,9 +119,9 @@ body {
  }
 .about {
   text-align: justify;
- background: #fff;
+  background: #fff;
   border-radius: 15px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(31, 31, 31, 0.1); /* Subtle shadow for depth */
+  /* box-shadow: 0 4px 6px rgba(31, 31, 31, 0.1); Subtle shadow for depth */
   padding: 20px;
   border-radius: 10px;
   width: 90%;

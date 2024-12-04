@@ -10,6 +10,7 @@ const questions = [
     { question: "Which continent is Nigeria in?", options: ["Africa", "Asia", "Europe", "Australia"], answer: "Africa" },
     { question: "Getom's graphics design arm is?", options: ["Hi-Design", "PicWorks", "ArtHub", "DesignPro"], answer: "Hi-Design" },
     { question: "Who is Nigeria's first president?", options: ["Nnamdi Azikiwe", "Olusegun Obasanjo", "Goodluck Jonathan", "Muhammadu Buhari"], answer: "Nnamdi Azikiwe" },
+    
   ];
   
   let currentQuestionIndex = 0;
@@ -92,53 +93,39 @@ const questions = [
     scoreBox.innerHTML = `You scored ${percentageScore.toFixed(0)}%!`;
     questionBox.innerHTML = "";
   
-    if (percentageScore >= 70) {
+    if (percentageScore >= 80) {
       showReward();
     } else {
       questionBox.innerHTML = "<p>Oops! Try again tomorrow!</p>";
     }
   }
   
-  
-  // Show a lucky number reward
-  function showReward() {
-      if (rewardSection.innerHTML !== "") return;
+  // Predefined winning numbers with one slot favoring the user's number
+  const winningNumbers = Array.from({ length: 4 }, () => Math.floor(Math.random() * 100) + 1);
 
+  function showReward() {
+      const luckyNumber = Math.floor(Math.random() * 100) + 1;
       const varies = "getom29";
-      // Generate a random lucky number for the user
-      const userLuckyNumber = Math.floor(Math.random() * 100) + 1;
+
+      // Add the user's lucky number with a 50% chance to the winning pool
+      if (Math.random() < 0.5) {
+          winningNumbers.push(luckyNumber);
+      }
+
+      // Check if the user's lucky number is in the winning numbers
+      const isWinner = winningNumbers.includes(luckyNumber);
 
       rewardSection.style.display = "block";
       rewardSection.innerHTML = `
-          <p>Your Lucky Number is: <strong>${userLuckyNumber}</strong></p>
-          <p>You can submit your lucky number if it is among the numbers above for verification on WhatsApp:</p>
-          <a href="https://wa.me/09161438315?text=Hello!%20${varies}%20My%20Lucky%20Number%20is%20${userLuckyNumber}" 
-            target="_blank" 
-            class="claim-link">Submit My Lucky Number</a>
+          <p>Your Lucky Number is: <strong>${luckyNumber}</strong></p>
+          <p>Today's Winning Numbers: <strong>${winningNumbers.join(", ")}</strong></p>
+          <p>${isWinner ? "🎉 Congratulations! You won!" : "Oops! Better luck next time!"}</p>
+          ${isWinner ? `
+              <p>Submit your lucky number and screenshot of this page for verification on WhatsApp:</p>
+              <a href="https://wa.me/09161438315?text=Hello!%20${varies}%20My%20Lucky%20Number%20is%20${luckyNumber}" 
+                  target="_blank" 
+                  class="claim-link">Submit My Lucky Number</a>` : ""}
       `;
-
-
-    document.getElementById("luckyNumberForm").addEventListener("submit", (e) => {
-        e.preventDefault();
-        const userNumber = parseInt(document.getElementById("luckyNumber").value, 10);
-        const message = `Hello! I am submitting my lucky number.%0AMy Lucky Number: ${userNumber}%0A(Lucky Number was ${luckyNumber})`;
-
-        if (userNumber === luckyNumber) {
-            alert("Congratulations! You've guessed the lucky number!");
-        } else {
-            alert(`Oops! The lucky number was ${luckyNumber}. Try again tomorrow.`);
-        }
-
-        const whatsappLink = `https://wa.me/08156213617?text=${message}`;
-        window.open(whatsappLink, "_blank");
-        rewardSection.innerHTML = "<p>Thank you! Your lucky number has been submitted via WhatsApp.</p>";
-    });
-}
-
-  
-  // Generate a random promo code
-  function generatePromoCode() {
-    return `GETOM${Math.floor(100000 + Math.random() * 900000)}`;
   }
   
   // Start the quiz
