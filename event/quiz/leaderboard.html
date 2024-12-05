@@ -118,7 +118,7 @@
               <p>Your Level: ${userLevel}</p>
             `;
           } else {
-            document.getElementById('user-info').innerHTML = "<p>User not found. Please make sure you are logged in.</p>";
+            document.getElementById('user-info').innerHTML = "<p>User not found. Please make sure you have played once.</p>";
           }
         }).catch((error) => {
           console.error("Error fetching user score: ", error);
