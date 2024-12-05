@@ -4,50 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaderboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            color: #333;
-        }
-        table {
-            width: 50%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        .loader {
-            font-size: 20px;
-            margin-top: 50px;
-        }
-        .user-info {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-    </style>
+
+     <!-- Favicon (Logo for title bar) -->
+     <link rel="icon" type="image/png" href="../../media/gw1.png" />
+
+    <link rel="stylesheet" href="style2.css">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sofia"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap"
+      rel="stylesheet"
+    />
 </head>
 <body>
-
+    <h3>Getom Quiz</h3>
     <h1>Leaderboard</h1>
+    <p class="to_be_small">15th to 21th December || <span>Rewards on 21th</span></p>
 
     <div id="user-info" class="user-info">
         <p>Loading your score and level...</p>
@@ -55,6 +31,21 @@
 
     <div id="leaderboard-container">
         <div class="loader">Loading leaderboard...</div>
+    </div>
+
+    <div class="lastly">
+      <p>
+        powered by © GETOM | Hi-dev | Season Sparkel 2024
+        <br />
+        <span>Few days to launch, 15th Decemebr 2024</span>
+        <br />
+        <span>
+          <!-- Test Version 1.0.2 | Send review to -->
+          Test Version 1.0.3 | Send review to
+          <a href="mailto:getom29@gmail.com">Mail</a> <br />
+          last reviewed 05/12/24 9:32am</span
+        >
+      </p>
     </div>
 
     <!-- Firebase SDK -->
@@ -83,11 +74,11 @@
 
       // Function to calculate level based on score
       function calculateLevel(score) {
-        if (score <= 50) return 1;
-        if (score <= 100) return 2;
-        if (score <= 150) return 3;
-        if (score <= 200) return 4;
-        return 5; // Level 5 for scores above 200
+        if (score <= 300) return 1;
+        if (score <= 600) return 2;
+        if (score <= 900) return 3;
+        if (score <= 1200) return 4;
+        return 5; // Level 5 for scores above 1200
       }
 
       // Fetch leaderboard data from Firebase

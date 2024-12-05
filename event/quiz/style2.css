@@ -1,0 +1,82 @@
+
+body {
+    font-family: "Parkinsans", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    animation: colorChange 5s infinite alternate;
+  }
+
+  @keyframes colorChange {
+    0% {
+        background-color: #fff7eb; /* Very Light Peach */
+    }
+    25% {
+        background-color: #fff2e0; /* Very Light Apricot */
+    }
+    50% {
+        background-color: #ffe8d1; /* Light Orange Cream */
+    }
+    75% {
+        background-color: #ffedd6; /* Soft Light Orange */
+    }
+    100% {
+        background-color: #fff5e4; /* Back to Very Light Peach */
+    }
+}
+h3{
+    color: #ff5100;
+}
+.to_be_small{
+    font-size: 15px;
+}
+.to_be_small span{
+    background: #ffc3a8;
+    border-radius: 5px;
+    padding: 5px;
+}
+h1 {
+    color: #333;
+}
+table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid #ffc3a8;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #ff5100;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #fff7eb;
+}
+.loader {
+    font-size: 20px;
+    margin-top: 50px;
+}
+.user-info {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.lastly p{
+    text-align: center;
+    font-size: 14px;
+  }
+  .lastly p span{
+    font-size: 12px;
+  }
+@media screen and (max-width: 952px){
+    table {
+        width: 100%;
+        /* margin: 10px; */
+    }
+}
