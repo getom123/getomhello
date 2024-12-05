@@ -1,63 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Getom Quiz</title>
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Getom Quiz</title>
+    <link rel="stylesheet" href="style.css" />
     <!-- Favicon (Logo for title bar) -->
-    <link rel="icon" type="image/png" href="../../media/gw1.png">  <!-- Update this path -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
-</head>
-<body>
- 
-  <div class="quiz-container" id="game-container">
-    <div class="snowflakes-container" id="snowflakes-container"></div>
-    <h1>Getom Quiz</h1>
-    <div id="time">Time Left (Question): 10s</div>
-    <div id="total-time">Total Time Left: 50s</div>
-    <div id="question-box"></div>
-    <div id="score-box"></div>
-    <div id="reward-section" style="display:none;"></div>
+    <link rel="icon" type="image/png" href="../../media/gw1.png" />
+    <!-- Update this path -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Sofia"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="quiz-container" id="game-container">
+      <div id="username-display"></div>
 
+      <div class="snowflakes-container" id="snowflakes-container"></div>
+      <h1>Getom Quiz</h1>
+      <div id="time">Time Left (Question): 10s</div>
+      <div id="total-time">Total Time Left: 50s</div>
+      <div id="question-box"></div>
+      <div id="score-box"></div>
+      <div id="reward-section" style="display: none"></div>
 
-      <div id="countdown-overlay" style="display: flex; justify-content: center; align-items: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0); color: white; font-size: 48px; z-index: 9999;">
+      <div
+        id="countdown-overlay"
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0);
+          color: white;
+          font-size: 48px;
+          z-index: 9999;
+        "
+      >
         <span id="countdown-number"></span>
       </div>
 
-       <!-- The rest of your quiz content -->
+      <!-- The rest of your quiz content -->
       <!-- <div id="quiz-content" style="display: none;"> -->
-        <!-- Quiz content goes here -->
-        <!-- <div id="question-box"></div>
+      <!-- Quiz content goes here -->
+      <!-- <div id="question-box"></div>
         <div id="score-box"></div>
         <div id="reward-section"></div>
         <div id="time"></div>
         <div id="total-time"></div>
     </div> -->
-    
-   
-  
-  </div>
-  <div id="message-container"></div>
+    </div>
+    <div id="message-container"></div>
 
-  <div class="move">
-    <marquee behavior="" direction="">Merry Christmas and happy new year From Getom hi-tech.</marquee>
-  </div>
+    <div class="move">
+      <marquee behavior="" direction=""
+        >Merry Christmas and happy new year From Getom hi-tech.</marquee
+      >
+    </div>
 
-  <div class="lastly">
-    <p>powered by © GETOM | Hi-dev |  Season Sparkel 2024 
-      <br>
-      <span>Few days to launch, 15th Decemebr 2024</span>
-      <br> 
-      <span>Test Version 1.0.2 | Send review to <a href="mailto:getom29@gmail.com">Mail</a> <br> last reviewed 04/12/24 6:55pm</span>
-    </p>
-    
-  </div>
+    <div class="lastly">
+      <p>
+        powered by © GETOM | Hi-dev | Season Sparkel 2024
+        <br />
+        <span>Few days to launch, 15th Decemebr 2024</span>
+        <br />
+        <span
+          >Test Version 1.0.2 | Send review to
+          <a href="mailto:getom29@gmail.com">Mail</a> <br />
+          last reviewed 04/12/24 6:55pm</span
+        >
+      </p>
+    </div>
 
-  <script src="script.js"></script>
-  <script src="script1.js"></script>
-</body>
+    <script src="script.js"></script>
+    <script src="script2.js" type="module"></script>
+  </body>
 </html>

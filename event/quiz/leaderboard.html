@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .loader {
+            font-size: 20px;
+            margin-top: 50px;
+        }
+        .user-info {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Leaderboard</h1>
+
+    <div id="user-info" class="user-info">
+        <p>Loading your score and level...</p>
+    </div>
+
+    <div id="leaderboard-container">
+        <div class="loader">Loading leaderboard...</div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+      import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+      // Your Firebase config
+      const firebaseConfig = {
+        apiKey: "AIzaSyA_wbos0yQ5TIS0uG7jjX-4Kdw-W3QXjJ8",
+        authDomain: "gquiz-539dd.firebaseapp.com",
+        databaseURL: "https://gquiz-539dd-default-rtdb.firebaseio.com",
+        projectId: "gquiz-539dd",
+        storageBucket: "gquiz-539dd.firebasestorage.app",
+        messagingSenderId: "435490691709",
+        appId: "1:435490691709:web:745a588169ab0bf7932f14",
+        measurementId: "G-531RE26HRD"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      // Get current user's username (this can be fetched from localStorage or sessionStorage)
+      const currentUsername = localStorage.getItem("username"); // Assumes username is stored in localStorage
+
+      // Function to calculate level based on score
+      function calculateLevel(score) {
+        if (score <= 50) return 1;
+        if (score <= 100) return 2;
+        if (score <= 150) return 3;
+        if (score <= 200) return 4;
+        return 5; // Level 5 for scores above 200
+      }
+
+      // Fetch leaderboard data from Firebase
+      function fetchLeaderboard() {
+        const leaderboardRef = ref(db, 'leaderboard/');
+        get(leaderboardRef).then((snapshot) => {
+          if (snapshot.exists()) {
+            const leaderboard = [];
+            snapshot.forEach(childSnapshot => {
+              leaderboard.push(childSnapshot.val());
+            });
+            leaderboard.sort((a, b) => b.score - a.score); // Sort by score in descending order
+
+            // Display top 10 players
+            displayLeaderboard(leaderboard.slice(0, 10)); // Get the top 10 players
+          } else {
+            document.getElementById('leaderboard-container').innerHTML = "<p>No leaderboard data found.</p>";
+          }
+        }).catch((error) => {
+          console.error("Error fetching leaderboard: ", error);
+          document.getElementById('leaderboard-container').innerHTML = "<p>Failed to load leaderboard.</p>";
+        });
+      }
+
+      // Fetch current user's score and level
+      function fetchUserScore() {
+        const userRef = ref(db, 'leaderboard/' + currentUsername);
+        get(userRef).then((snapshot) => {
+          if (snapshot.exists()) {
+            const user = snapshot.val();
+            const userScore = user.score;
+            const userLevel = calculateLevel(userScore);
+
+            // Display user's score and level
+            document.getElementById('user-info').innerHTML = `
+              <p>Your Score: ${userScore}</p>
+              <p>Your Level: ${userLevel}</p>
+            `;
+          } else {
+            document.getElementById('user-info').innerHTML = "<p>User not found. Please make sure you are logged in.</p>";
+          }
+        }).catch((error) => {
+          console.error("Error fetching user score: ", error);
+          document.getElementById('user-info').innerHTML = "<p>Failed to load your score and level.</p>";
+        });
+      }
+
+      // Display leaderboard on the page
+      function displayLeaderboard(leaderboard) {
+        let leaderboardHTML = `<table>
+                                <tr><th>Rank</th><th>Username</th><th>Score</th><th>Level</th></tr>`;
+
+        leaderboard.forEach((entry, index) => {
+          const level = calculateLevel(entry.score);
+          leaderboardHTML += `
+            <tr>
+              <td>${index + 1}</td>
+              <td>${entry.username}</td>
+              <td>${entry.score}</td>
+              <td>${level}</td>
+            </tr>`;
+        });
+
+        leaderboardHTML += `</table>`;
+        document.getElementById('leaderboard-container').innerHTML = leaderboardHTML;
+      }
+
+      // Function to refresh the leaderboard and user score
+      function refreshPageData() {
+        fetchUserScore();
+        fetchLeaderboard();
+      }
+
+      // Fetch and display the leaderboard and user info when the page loads
+      refreshPageData();
+
+      // Set interval to refresh data every 15 seconds (15000 ms)
+      setInterval(refreshPageData, 15000);
+    </script>
+
+</body>
+</html>
