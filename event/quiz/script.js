@@ -48,9 +48,9 @@ for (let i = 0; i < snowflakeCount; i++) {
 // to fix the game to 9am to 10:30am
 document.addEventListener("DOMContentLoaded", function () {
   const startTime = new Date();
-  startTime.setHours(0, 0, 0); // Set start time to 9:00 AM
+  startTime.setHours(6, 0, 0); // Set start time to 9:00 AM
   const endTime = new Date();
-  endTime.setHours(0, 0, 0); // Set end time to 10:30 AM
+  endTime.setHours(23, 0, 0); // Set end time to 10:30 AM
 
   const currentTime = new Date();
   const gameContainer = document.getElementById("game-container");

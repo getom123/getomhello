@@ -149,7 +149,13 @@ body {
   opacity: 0.8;
   animation: fall linear infinite;
 }
-
+.lastly p{
+  text-align: center;
+  font-size: 14px;
+}
+.lastly p span{
+  font-size: 12px;
+}
 @keyframes fall {
   0% {
       transform: translateY(-10px);
