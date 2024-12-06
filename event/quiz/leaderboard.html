@@ -74,11 +74,16 @@
 
       // Function to calculate level based on score
       function calculateLevel(score) {
-        if (score <= 300) return 1;
-        if (score <= 600) return 2;
-        if (score <= 900) return 3;
-        if (score <= 1200) return 4;
-        return 5; // Level 5 for scores above 1200
+        if (score <= 500) return '1 - Rookie';
+        if (score <= 1000) return '2 - Scout';
+        if (score <= 1500) return '3 - Seeker';
+        if (score <= 2000) return '4 - Maven';
+        if (score <= 2500) return '5 - Ace';
+        if (score <= 3000) return '6 - Virtuoso';
+        if (score <= 3500) return '7 - Overlord';
+        if (score <= 4000) return '8 - Tycoon';
+        if (score <= 4500) return '9 - Icon';
+        return '10 - Monarch'; // Level 5 for scores above 1200
       }
 
       // Fetch leaderboard data from Firebase
@@ -133,8 +138,13 @@
 
         leaderboard.forEach((entry, index) => {
           const level = calculateLevel(entry.score);
+
+          // Add a special class if the entry matches the current user
+          const isCurrentUser = entry.username === currentUsername;
+          const rowClass = isCurrentUser ? 'highlight-row' : '';
+
           leaderboardHTML += `
-            <tr>
+            <tr class="${rowClass}">
               <td>${index + 1}</td>
               <td>${entry.username}</td>
               <td>${entry.score}</td>
@@ -145,6 +155,7 @@
         leaderboardHTML += `</table>`;
         document.getElementById('leaderboard-container').innerHTML = leaderboardHTML;
       }
+
 
       // Function to refresh the leaderboard and user score
       function refreshPageData() {

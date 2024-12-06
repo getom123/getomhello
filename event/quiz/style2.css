@@ -24,6 +24,12 @@ body {
         background-color: #fff5e4; /* Back to Very Light Peach */
     }
 }
+/* Highlight the current user's row */
+.highlight-row {
+    border: 2px solid #ff5100;
+    font-weight: bold;
+  }
+  
 h3{
     color: #ff5100;
 }
@@ -31,7 +37,7 @@ h3{
     font-size: 15px;
 }
 .to_be_small span{
-    background: #ffc3a8;
+    background: rgb(179, 255, 179);
     border-radius: 5px;
     padding: 5px;
 }

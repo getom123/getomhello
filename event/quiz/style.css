@@ -31,7 +31,33 @@ body {
     }
 }
 
-  
+  .leaderboard_link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  .leaderboard_link a{
+    margin: 5px;
+    text-decoration: none;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    color: #333;
+    font-size: 14px;
+    transition: 0.5s;
+  }
+
+  .leaderboard_link a:hover{
+    background: rgb(179, 255, 179);
+  }
+
+  #username-display{
+    background: rgb(179, 255, 179);
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
   .quiz-container{
     text-align: center;
     background: #fff;
@@ -44,6 +70,10 @@ body {
   
   h1 {
     color: #ff5100;
+    line-height: 10px;
+  }
+  #total-time, #time{
+    font-size: 14px;
   }
   
   #timer {
@@ -56,7 +86,7 @@ body {
     margin: 20px 0;
   }
   
-  button, .btn {
+  button, .btn{
     background-color: #ff5100;
     color: #ffffff;
     border: none;
@@ -103,10 +133,10 @@ body {
   }
 
   .move{
-    position: fixed;
-    top: 0;
-    background: #fff5e4;
-    padding: 10px;
+    /* position: fixed; */
+    /* bottom: 0px; */
+    /* background: #fff5e4; */
+    padding: 5px;
     margin-top: 20px;
   }
 
@@ -149,12 +179,17 @@ body {
   opacity: 0.8;
   animation: fall linear infinite;
 }
+
 .lastly p{
   text-align: center;
   font-size: 14px;
 }
 .lastly p span{
   font-size: 12px;
+}
+
+.score-box{
+  font-size: 15px;
 }
 @keyframes fall {
   0% {

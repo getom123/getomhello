@@ -127,53 +127,67 @@ function nextQuestion() {
 // End the quiz and save the score
 function endQuiz() {
   clearInterval(timerInterval);
-  const percentageScore = (score / shuffledQuestions.length) * 100;
-  scoreBox.innerHTML = `You scored ${percentageScore.toFixed(0)}%!`;
-  questionBox.innerHTML = "";
+  const percentageScore = (score / shuffledQuestions.length) * 100; // Calculate percentage score
+  questionBox.innerHTML = ""; // Clear question box
 
   // Save score to Firebase with username, updating if higher
-  saveScoreToFirebase(username, percentageScore);
+  saveScoreToFirebase(username, percentageScore, (totalScore) => {
+    // Once the score is saved, fetch the updated total score
+    const level = calculateLevel(totalScore); // Calculate user's current level
+    scoreBox.innerHTML = `
+      <p>You scored ${percentageScore.toFixed(0)}% in this game!</p>
+      <p>Total Accumulated Points: ${totalScore}</p>
+      <p>Your Current Level: ${level}</p>
+    `;
 
-  // Display leaderboard
-  displayLeaderboard();
+    // Display leaderboard (optional)
+    displayLeaderboard();
+  });
 }
 
 // Save or update score to Firebase (accumulating the score)
-function saveScoreToFirebase(username, score) {
-    const scoreRef = ref(db, 'leaderboard/' + username);
-  
-    // Get current score for the user
-    get(scoreRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        // If the user exists, accumulate the score
-        const currentScore = snapshot.val().score || 0; // Get current score, default to 0 if none exists
-        const newScore = currentScore + score; // Add the new score to the current score
-  
-        // Update the user's score with the new accumulated score
-        update(scoreRef, {
-          score: newScore,
-          timestamp: Date.now()
-        }).then(() => {
-          console.log("Score accumulated and updated successfully! New Score: ", newScore); // Debugging line
-        }).catch((error) => {
-          console.error("Error updating score: ", error);
-        });
-      } else {
-        // If the user doesn't exist, create a new record with the score
-        set(scoreRef, {
-          username: username,
-          score: score,
-          timestamp: Date.now()
-        }).then(() => {
-          console.log("Score saved successfully!"); // Debugging line
-        }).catch((error) => {
-          console.error("Error saving score: ", error);
-        });
-      }
+function saveScoreToFirebase(username, score, callback) {
+  const scoreRef = ref(db, 'leaderboard/' + username);
+
+  // Get current score for the user
+  get(scoreRef).then((snapshot) => {
+    let totalScore = score; // Initialize with the current game score
+    if (snapshot.exists()) {
+      // If the user exists, accumulate the score
+      const currentScore = snapshot.val().score || 0; // Get current score
+      totalScore += currentScore; // Add the new score to the current score
+    }
+
+    // Update the user's score with the new accumulated score
+    set(scoreRef, {
+      username: username,
+      score: totalScore,
+      timestamp: Date.now()
+    }).then(() => {
+      console.log("Score saved successfully! Total Score: ", totalScore);
+      if (callback) callback(totalScore); // Execute callback with the total score
     }).catch((error) => {
-      console.error("Error checking score: ", error);
+      console.error("Error saving score: ", error);
     });
-  }
+  }).catch((error) => {
+    console.error("Error fetching score: ", error);
+  });
+}
+
+// Function to calculate level based on score
+function calculateLevel(score) {
+  if (score <= 500) return '1 - Rookie';
+  if (score <= 1000) return '2 - Scout';
+  if (score <= 1500) return '3 - Seeker';
+  if (score <= 2000) return '4 - Maven';
+  if (score <= 2500) return '5 - Ace';
+  if (score <= 3000) return '6 - Virtuoso';
+  if (score <= 3500) return '7 - Overlord';
+  if (score <= 4000) return '8 - Tycoon';
+  if (score <= 4500) return '9 - Icon';
+  return '10 - Monarch'; // Level 5 for scores above 5000
+}
+
   
   
 
