@@ -13,6 +13,15 @@ body {
     animation: colorChange 5s infinite alternate;
   }
 
+  a{
+    text-decoration: none;
+    font-size: 16px;
+    color: #16a34a;
+  }
+  a:hover{
+    opacity: 0.2;
+  }
+
   @keyframes colorChange {
     0% {
         background-color: #fff7eb; /* Very Light Peach */
@@ -30,6 +39,8 @@ body {
         background-color: #fff5e4; /* Back to Very Light Peach */
     }
 }
+
+ 
 
   .leaderboard_link{
     display: flex;
@@ -139,6 +150,8 @@ body {
     padding: 5px;
     margin-top: 20px;
   }
+
+
 
   
  .winning_numbers span{

@@ -83,16 +83,12 @@
 
       // Function to calculate level based on score
       function calculateLevel(score) {
-        if (score <= 500) return '1 - Rookie';
-        if (score <= 1000) return '2 - Scout';
-        if (score <= 1500) return '3 - Seeker';
-        if (score <= 2000) return '4 - Maven';
-        if (score <= 2500) return '5 - Ace';
-        if (score <= 3000) return '6 - Virtuoso';
-        if (score <= 3500) return '7 - Overlord';
-        if (score <= 4000) return '8 - Tycoon';
-        if (score <= 4500) return '9 - Icon';
-        return '10 - Monarch'; // Level 5 for scores above 1200
+        if (score <= 100) return '1 - Rookie';
+        if (score <= 200) return '2 - Scout';
+        if (score <= 350) return '3 - Ace';
+        if (score <= 450) return '4 - Virtuoso';
+        if (score <= 600) return '5 - Overlord';
+        return '6 - Monarch'; // Level 6 for scores above 600
       }
 
       // Fetch leaderboard data from Firebase

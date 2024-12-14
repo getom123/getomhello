@@ -46,36 +46,3 @@ for (let i = 0; i < snowflakeCount; i++) {
 
 
 // to fix the game to 9am to 10:30am
-document.addEventListener("DOMContentLoaded", function () {
-  const startTime = new Date();
-  startTime.setHours(6, 0, 0); // Set start time to 9:00 AM
-  const endTime = new Date();
-  endTime.setHours(23, 0, 0); // Set end time to 10:30 AM
-
-  const currentTime = new Date();
-  const gameContainer = document.getElementById("game-container");
-  const messageContainer = document.getElementById("message-container");
-
-  if (currentTime >= startTime && currentTime <= endTime) {
-      // Game is active
-      gameContainer.style.display = "block";
-      messageContainer.style.display = "none";
-  } else {
-      // Game is inactive
-      gameContainer.style.display = "none";
-      messageContainer.style.display = "block";
-      if (currentTime < startTime) {
-          // Before start time
-          messageContainer.innerHTML = `
-              <h2>The game hasn't started yet!</h2>
-              <p>Come back at 9:00 AM to start playing.</p>
-          `;
-      } else {
-          // After end time
-          messageContainer.innerHTML = `
-              <h2>The game is over for today!</h2>
-              <p>Please come back tomorrow between 9:00 AM and 10:30 AM to play again.</p>
-          `;
-      }
-  }
-});
