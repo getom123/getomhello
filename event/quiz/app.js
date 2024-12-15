@@ -40,16 +40,16 @@ usernameDisplay.textContent = `Your Username: ${username}`;
 
 // Quiz Questions
 const questions = [
-    { question: "What is the goal of Getom?", options: ["Digital solutions", "Next-gen digital tech solutions", "Digital solution", "Next-gen tech solutions"], answer: "Next-gen digital tech solutions" },
-    { question: "Which is a Getom subsidiary?", options: ["gethome", "Hi-dv", "Hi-Dev", "getomhello"], answer: "Hi-Dev" },
-    { question: "What is Getom's theme color?", options: ["Peach-orange", "Orange-light green", "Green-black", "black-Orange-light green"], answer: "black-Orange-light green" },
-    { question: "Which year did Nigeria gain independence?", options: ["1970", "1960", "1950", "1963"], answer: "1960" },
-    { question: "What does GetRecharged offer?", options: ["Airtime and data desale", "Airtime and data for mobile", "Airtime and data resale", "battery increase"], answer: "Airtime and data resale" },
-    { question: "Which is not a Getom subsidiary?", options: ["Hi-dev", "Hi-design", "Getconnected", "Getomhello"], answer: "Getomhello" },
-    { question: "What is Getom's focus?", options: ["Digital de-solutions", "Digital solutions", "Digital Solution", "Solutions for all"], answer: "Digital solutions" },
-    { question: "Which continent is Getom in?", options: ["Korea", "Asia", "Africa", "Australia"], answer: "Africa" },
-    { question: "Getom's graphics design arm is?", options: ["Hi-deign", "Hi-designbygetom", "Hi-Design", "Hi-degin"], answer: "Hi-Design" },
-    { question: "Who founded Getom?", options: ["you", "Oladosu Goodness Emmnuel", "Goodness Oladosu", "Goodness Emmanel Oladosu"], answer: "Goodness Oladosu" },
+  { question: "Getom does not offer one of this services?", options: ["Digtal solutoins", "Designing", "Development", "Mobile data resale"], answer: "Digtal solutoins" },
+  { question: "Which is not Getom subsidiary?", options: ["Getrecharged", "Getconnected", "Hi-Dev", "Hi-Desgn"], answer: "Hi-Desgn" },
+  { question: "Is Getom technical?", options: ["Yes strrong", "Yes indeed", "Yes I think so", "Not at all"], answer: "Yes indeed" },
+  { question: "Getom was founded in what year?", options: ["2022", "2020", "2021", "2023"], answer: "2022" },
+  { question: "Which Getom's arm offers coding tutorials?", options: ["Hi-Design", "Hi-Developers", "Hi-Devv", "Hi-Dev"], answer: "Hi-Dev" },
+  { question: "Which is the correct short link for this game?", options: ["bit.ly/gquiz.com", "bit.ly/gquiz", "getom123.io/getomllo/event/quiz/", "bit.ly/gquiz.ng"], answer: "bit.ly/gquiz" },
+  { question: "Every innovation started as a(n)?", options: ["Knowledge", "Idea", "Thought", "Wisdom"], answer: "Idea" },
+  { question: "How many arms of Getom are there?", options: ["4", "3", "2", "1"], answer: "4" },
+  { question: "Getom's graphics design arm is not?", options: ["Hi-Design", "Hi-designbygetom", "Hi-Deign", "Hi-Design"], answer: "Hi-Deign" },
+  { question: "This event title is?", options: ["GQuiz", "Getom Quiz", "Season Spakle", "Season Sparkle"], answer: "Season Sparkle" },
 ];
 
 let currentQuestionIndex = 0;
@@ -213,11 +213,11 @@ function canAccessQuiz() {
   
     // Set allowed time range (9:00 AM to 10:30 AM)
     startTime.setHours(9, 0, 0); // 9:00 AM
-    endTime.setHours(10, 30, 0); // 10:30 AM
+    endTime.setHours(15, 0, 0); // 12:0 AM
   
     // Check if the current time is within the range
     if (now < startTime || now > endTime) {
-      return { status: false, message: "The quiz is only accessible from 9:00 AM to 10:30 AM daily." };
+      return { status: false, message: "The quiz is only accessible from 9:00 AM to 12:00 AM daily." };
     }
   
     // Check if the user has already accessed the quiz today
