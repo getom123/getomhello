@@ -213,7 +213,7 @@ function canAccessQuiz() {
   
     // Set allowed time range (9:00 AM to 10:30 AM)
     startTime.setHours(9, 0, 0); // 9:00 AM
-    endTime.setHours(15, 0, 0); // 12:0 AM
+    endTime.setHours(12, 0, 0); // 12:0 AM
   
     // Check if the current time is within the range
     if (now < startTime || now > endTime) {
