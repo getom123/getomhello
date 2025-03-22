@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Portfolio website of Oladosu Goodness Emmanuel, a developer, designer, and creator showcasing innovative projects and skills in technology.">
     <meta name="keywords" content="Oladosu Goodness Emmanuel, developer, designer, portfolio, projects, technology, web development, design, graphics design, flyer, design, getom, getomhello, getom hi-tech, goodness oladosu, oladosu goodness">
     <meta name="author" content="Oladosu Goodness Emmanuel">
@@ -11,250 +11,203 @@
     <meta property="og:image" content="../media/">
     <meta property="og:url" content="https://getom123.github.io/getomhello/oladosu%20goodness/">
     <title>Oladosu Goodness Emmanuel - Portfolio</title>
-    <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Sofia"
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Poller+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4f15ef5cec.js" crossorigin="anonymous"></script>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-        }
-
-        body {
-            font-family: "Parkinsans", sans-serif;
-            line-height: 1.6;
-            background: #fff5e4;
-            color: #333;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            color: #ff5100;
-            font-size: 1.2rem;
-        }
-
-
-        nav {
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-            transition: all ease-in 1s;
-        }
-
-        nav a:hover {
-            opacity: 0.2;
-        }
-        .social-icons{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .social-icons > a{
-            margin: 5px;
-            color: #fff5e4;
-            font-size: 25px;
-            margin-right: 20px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 1rem;
-        }
-
-        .about {
-            margin-bottom: 2rem;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .about.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project {
-            background: #fff;
-            border: 1px solid #ffd1bc;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .project:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(253, 108, 11, 0.2);
-        }
-
-        .project.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .project img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project h3 {
-            color: #333;
-            font-size: 1.5rem;
-            margin: 1rem;
-        }
-
-        .project p {
-            margin: 0 1rem 1rem;
-            color: #666;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem 0;
-            background: #333;
-            color: #fff;
-            margin-top: 2rem;
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const options = {
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, options);
-
-            const elements = document.querySelectorAll('.about, .project');
-            elements.forEach(element => observer.observe(element));
-        });
-    </script>
-</head>
-<body>
-    <header>
-        <img src="../media/gt.png" alt="" style="border-radius: 50%; background: #fff5e4;" width="300px" height="300px">
-        <h1>Oladosu Goodness Emmanuel</h1>
-        <p>Developer | Designer | Creator</p>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-         <!-- Social Media Icons -->
-         <div class="social-icons" data-aos="fade-up" data-aos-delay="200">
-            <a href="https://www.facebook.com/share/akMRvPhoykLhDKEE/" target="_blank" class="">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://wa.me/09161438315" target="_blank" class="">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.instagram.com/p/DCzd1KIOpZ1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://x.com/getomhi08" target="_blank" class="">
-                <i class="fab fa-twitter"></i>
-            </a>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    </head>
+  <style>
+    *{
+      font-family: Inter;
+    }
+    body{
+      overflow-x: hidden;
+    }
+    .details{
+      line-height: 0px !important;
+    }
+    .drt{
+      z-index: 99;
+    }
+   .img{
+      width: 400px;
+      z-index: 2;
+      filter: drop-shadow(0 0 8px white) drop-shadow(0 0 15px rgb(255, 209, 148));
+   }
+   .circle{
+      z-index: 1 !important;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      opacity: 0.5;
+   }
+   .box{
+      z-index: 1 !important;
+      width: 20px;
+      height: 20px;
+      opacity: 0.2;
+   }
+   .card-body p i{
+      font-size: 25px;
+   }
+  </style>
+  <body class="bg-white">
+    <nav class="navbar navbar-expand-lg border-bottom border-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Goodness <span class="text-warning">oladosu</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link active text-warning" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">Contact</a>
+          </div>
         </div>
-    </header>
+      </div>
+    </nav>
 
-    <div class="container">
-        <section id="about" class="about">
-            <h2>About Me</h2>
-            <p>
-                Hello! I'm Oladosu Goodness Emmanuel, a passionate developer and designer dedicated to crafting innovative solutions in the digital space. With a focus on creativity, functionality, and user-centered designs, I bring ideas to life through technology.
-                <br>
-                Also the Founder of <b style="color:#ff5100;">"Getom hi-tech",</b> a technical company created for the purpose of digital solutions. <a href="../index.html">Read More</a> 
-            </p>
-        </section>
 
-        <section id="projects" class="projects">
-            <h2>Projects</h2>
+    <!-- hero section -->
+     <div class="container-fluid">
+        <div class="p-2 m-4 bg-warning-subtle overflow-hidden">
+          <div class="d-flex justify-content-center align-items-center position-relative">
+            <div class="drt position-absolute bg-opacity-60 bottom-0 border border-2 border-tertiary rounded-2 bg-white p-4" data-aos="fade-right"  data-aos-easing="linear"
+            data-aos-duration="1500">
+                <div class="details text-start">
+                  <p class="fs-sm">Hello i'm</p>
+                  <h1 class="text-uppercase">Goodness <span class="text-warning">oladosu</span></h1>
+                  <p class="">I Code, I Design, I Develop...</p>
+                </div>
+                <div class="box bg-warning p-5 position-absolute bottom-80 start-50"></div>
 
-            <div class="projects">
-                <a href="../index.html" class="project">
-                    <img src="../media/getom_nov.jpg" alt="Project 1">
-                    <h3>Getom web</h3>
-                    <p>Getom hi-tech website creating and hosting.</p>
-                </a>
+    
+                <div class="socials">
+                  <a href="https://www.facebook.com/share/akMRvPhoykLhDKEE/" class="p-1 mr-1"><i class="fa-brands fa-facebook fs-5 text-warning"></i></a>
+                  <a href="https://github.com/getom123/" class="p-1 mr-1"><i class="fa-brands fa-github fs-5 text-warning"></i></a>
+                  <a href="https://wa.me/09161438315" class="p-1 mr-1"><i class="fa-brands fa-whatsapp fs-5 text-warning"></i></a>
+                  <a href="" class="p-1 mr-1"><i class="fa-brands fa-linkedin fs-5 text-warning"></i></a>
+                </div>
+              </div>
 
-                <a href="../event/quiz/about.html" class="project">
-                    <img src="../media/gquiz2.jpg" alt="Project 2">
-                    <h3>GQuiz</h3>
-                    <p>A season sparkel event 2024.</p>
-                </a>
+              <div class="d-flex justify-content-center align-items-center">
+                <div class="circle bg-warning p-5 position-absolute top-0" data-aos="flip-right"  data-aos-easing="linear"
+                data-aos-duration="1500"></div>
+                <img src="gt.png" alt="" class="img"  data-aos="fade-up"  data-aos-easing="linear"
+                data-aos-duration="1500">
+              </div>
+          </div>
+        </div>
+     </div>
 
-                <a href="#" class="project">
-                    <img src="../media/hidesign_august.jpg" alt="Project 3">
-                    <h3>Graphics Designs</h3>
-                    <p>flyers, brochure, banner, web banner etc.</p>
-                </a>
+
+     <!-- about my skills -->
+     <div class="container-fluid skill1">
+      <h1 class="text-center">Hello <span class="text-warning">There</span></h1>
+        <div class="d-flex justify-content-center align-items-center m-4 flex-wrap">
+            <div class="card m-4 border border-2 border-tertiary rounded-2" style="width: 18rem;"  data-aos="fade-right"  data-aos-easing="linear"
+            data-aos-duration="1000">
+              <div class="card-body">
+                <p><i class="fa-solid fa-pen-clip text-warning"></i></p>
+                <h3>Graphics Design</h3>
+                <p class="card-text">I learn, think and design ideas into reality.</p>
+              </div>
             </div>
-        </section>
-    </div>
 
-    <footer id="contact">
-        <p>Get in touch: <a href="mailto:oladosugoodness8@gmail.com" style="color: #ff5100;">oladosugoodness8@gmail.com</a></p>
-         <!-- Social Media Icons -->
-         <div class="social-icons" data-aos="fade-up" data-aos-delay="200">
-            <a href="https://www.facebook.com/share/akMRvPhoykLhDKEE/" target="_blank" class="">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://wa.me/09161438315" target="_blank" class="">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.instagram.com/p/DCzd1KIOpZ1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://x.com/getomhi08" target="_blank" class="">
-                <i class="fab fa-twitter"></i>
-            </a>
+            <div class="card m-4 border border-2 border-tertiary rounded-2" style="width: 18rem;" data-aos="fade-up"  data-aos-easing="linear"
+            data-aos-duration="1000">
+              <div class="card-body" >
+                <p><i class="fa-solid fa-code text-warning"></i></p>
+                <h3>Web Development</h3>
+                <p class="card-text">I develop the designed reality into more defined reality.</p>
+              </div>
+            </div>
+
+            <div class="card m-4 border border-2 border-tertiary rounded-2" style="width: 18rem;" data-aos="fade-left"  data-aos-easing="linear"
+            data-aos-duration="1000">
+              <div class="card-body" >
+                <p><i class="fa-solid fa-suitcase text-warning"></i></p>
+                <h3>Project Writing</h3>
+                <p class="card-text">I also have a skill in project writing, construction, research.</p>
+              </div>
+            </div>
         </div>
-        <p>&copy; 2024 Oladosu Goodness Emmanuel. All rights reserved.</p>
-    </footer>
-</body>
+
+        <div class="d-flex justify-content-center align-items-center m-4 flex-wrap flex-column">
+          <p>In need of my service? chat with me on whatsapp</p>
+
+          <a href="" class="btn btn-warning text-white">Let's Chat</a>
+        </div>
+     </div>
+
+     <!-- my skill level -->
+     <div class="container-fluid skill-level">
+        <h1 class="text-center mt-5">Skill <span class="text-warning">Level</span></h1>
+          <div class="progress m-4 position-relative">
+              <div class="progress-bar bg-secondary position-relative text-white" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" data-aos="zoom-in-right"  data-aos-easing="linear"
+              data-aos-duration="2000">
+                  Front-end
+              </div>
+              <div class="progress-bar bg-light position-relative text-dark" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" data-aos="zoom-in-right"  data-aos-easing="linear"
+              data-aos-duration="1500">
+                  Back-end
+              </div>
+              <div class="progress-bar bg-warning-subtle position-relative text-dark" role="progressbar" style="width: 20%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" data-aos="zoom-in-right"  data-aos-easing="linear"
+              data-aos-duration="1000">
+                  Graphics
+              </div>
+              <div class="progress-bar bg-warning position-relative text-dark" role="progressbar" style="width: 25%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" data-aos="zoom-in-right"  data-aos-easing="linear"
+              data-aos-duration="500">
+                  Project Writing
+              </div>
+          </div>
+      </div>
+
+      <!-- contact me section -->
+      <div class="container-fluid contact-me" data-aos="flip-up"  data-aos-easing="linear"
+      data-aos-duration="1500">
+        <h1 class="text-center mt-5">Contact <span class="text-warning">Me</span></h1>
+
+        <div class="d-flex justify-content-center align-items-center m-4">
+          <form action="" class="w-100 w-md-75 w-lg-50 mx-auto border border-1 border-tertiary rounded-2 p-2">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+              <label for="floatingTextarea2">Comments</label>
+            </div>
+            <div class="form-floating mt-3 text-center">
+              <button type="submit" class="btn btn-warning text-white">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="container-fluid footer">
+        <div class="d-flex justify-content-center align-items-center flex-column p-4 bg-warning-subtle">
+          <div class="socials">
+            <a href="https://www.facebook.com/share/akMRvPhoykLhDKEE/" class="p-1 mr-1"><i class="fa-brands fa-facebook fs-5 text-warning"></i></a>
+            <a href="https://github.com/getom123/" class="p-1 mr-1"><i class="fa-brands fa-github fs-5 text-warning"></i></a>
+            <a href="https://wa.me/09161438315" class="p-1 mr-1"><i class="fa-brands fa-whatsapp fs-5 text-warning"></i></a>
+            <a href="" class="p-1 mr-1"><i class="fa-brands fa-linkedin fs-5 text-warning"></i></a>
+          </div>
+          <p>@Goodness Oladosu 2025</p>
+          <p class="text-center">Visit my brand at: <a href="../" class="text-warning text-decoration-none">bit.ly/getomhello</a> <br> <span class="fs-sm">created by Hi-dev from Getom</span></p>
+          
+        </div>
+      </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      AOS.init();
+    </script>
+  </body>
 </html>

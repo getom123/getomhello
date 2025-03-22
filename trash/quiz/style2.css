@@ -1,0 +1,118 @@
+
+body {
+    font-family: "Parkinsans", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    animation: colorChange 5s infinite alternate;
+  }
+
+  @keyframes colorChange {
+    0% {
+        background-color: #fff7eb; /* Very Light Peach */
+    }
+    25% {
+        background-color: #fff2e0; /* Very Light Apricot */
+    }
+    50% {
+        background-color: #ffe8d1; /* Light Orange Cream */
+    }
+    75% {
+        background-color: #ffedd6; /* Soft Light Orange */
+    }
+    100% {
+        background-color: #fff5e4; /* Back to Very Light Peach */
+    }
+}
+.the_box{
+    /* max-width: 50%; */
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.leaderboard_link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  .leaderboard_link a{
+    margin: 5px;
+    text-decoration: none;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    color: #333;
+    font-size: 14px;
+    transition: 0.5s;
+  }
+
+  .leaderboard_link a:hover{
+    background: rgb(179, 255, 179);
+  }
+/* Highlight the current user's row */
+.highlight-row {
+    border: 2px solid #ff5100;
+    font-weight: bold;
+  }
+  
+h3{
+    color: #ff5100;
+}
+.to_be_small{
+    font-size: 15px;
+}
+.to_be_small span{
+    background: rgb(179, 255, 179);
+    border-radius: 5px;
+    padding: 5px;
+}
+h1 {
+    color: #333;
+}
+h1, h3, p{
+    line-height: 15px;
+}
+table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1px solid #ffc3a8;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #ff5100;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: #fff7eb;
+}
+.loader {
+    font-size: 20px;
+    margin-top: 50px;
+}
+.user-info {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.lastly p{
+    text-align: center;
+    font-size: 14px;
+  }
+  .lastly p span{
+    font-size: 12px;
+  }
+@media screen and (max-width: 952px){
+    table {
+        width: 100%;
+        /* margin: 10px; */
+    }
+}

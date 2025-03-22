@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio website of Oladosu Goodness Emmanuel, a developer, designer, and creator showcasing innovative projects and skills in technology.">
+    <meta name="keywords" content="Oladosu Goodness Emmanuel, developer, designer, portfolio, projects, technology, web development, design, graphics design, flyer, design, getom, getomhello, getom hi-tech, goodness oladosu, oladosu goodness">
+    <meta name="author" content="Oladosu Goodness Emmanuel">
+    <meta property="og:title" content="Oladosu Goodness Emmanuel - Portfolio">
+    <meta property="og:description" content="Explore the portfolio of Oladosu Goodness Emmanuel, featuring projects and expertise in development and design.">
+    <meta property="og:image" content="../media/">
+    <meta property="og:url" content="https://getom123.github.io/getomhello/oladosu%20goodness/">
+    <title>Oladosu Goodness Emmanuel - Portfolio</title>
+    <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Sofia"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: "Parkinsans", sans-serif;
+            line-height: 1.6;
+            background: #fff5e4;
+            color: #333;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #ff5100;
+            font-size: 1.2rem;
+        }
+
+
+        nav {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+            transition: all ease-in 1s;
+        }
+
+        nav a:hover {
+            opacity: 0.2;
+        }
+        .social-icons{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icons > a{
+            margin: 5px;
+            color: #fff5e4;
+            font-size: 25px;
+            margin-right: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .about {
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .about.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project {
+            background: #fff;
+            border: 1px solid #ffd1bc;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(253, 108, 11, 0.2);
+        }
+
+        .project.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin: 1rem;
+        }
+
+        .project p {
+            margin: 0 1rem 1rem;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: #333;
+            color: #fff;
+            margin-top: 2rem;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, options);
+
+            const elements = document.querySelectorAll('.about, .project');
+            elements.forEach(element => observer.observe(element));
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="../media/gt.png" alt="" style="border-radius: 50%; background: #fff5e4;" width="300px" height="300px">
+        <h1>Oladosu Goodness Emmanuel</h1>
+        <p>Developer | Designer | Creator</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+         <!-- Social Media Icons -->
+         <div class="social-icons" data-aos="fade-up" data-aos-delay="200">
+            <a href="https://www.facebook.com/share/akMRvPhoykLhDKEE/" target="_blank" class="">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://wa.me/09161438315" target="_blank" class="">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/p/DCzd1KIOpZ1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/getomhi08" target="_blank" class="">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>
+                Hello! I'm Oladosu Goodness Emmanuel, a passionate developer and designer dedicated to crafting innovative solutions in the digital space. With a focus on creativity, functionality, and user-centered designs, I bring ideas to life through technology.
+                <br>
+                Also the Founder of <b style="color:#ff5100;">"Getom hi-tech",</b> a technical company created for the purpose of digital solutions. <a href="../index.html">Read More</a> 
+            </p>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+
+            <div class="projects">
+                <a href="../index.html" class="project">
+                    <img src="../media/getom_nov.jpg" alt="Project 1">
+                    <h3>Getom web</h3>
+                    <p>Getom hi-tech website creating and hosting.</p>
+                </a>
+
+                <a href="../event/quiz/about.html" class="project">
+                    <img src="../media/gquiz2.jpg" alt="Project 2">
+                    <h3>GQuiz</h3>
+                    <p>A season sparkel event 2024.</p>
+                </a>
+
+                <a href="#" class="project">
+                    <img src="../media/hidesign_august.jpg" alt="Project 3">
+                    <h3>Graphics Designs</h3>
+                    <p>flyers, brochure, banner, web banner etc.</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contact">
+        <p>Get in touch: <a href="mailto:oladosugoodness8@gmail.com" style="color: #ff5100;">oladosugoodness8@gmail.com</a></p>
+         <!-- Social Media Icons -->
+         <div class="social-icons" data-aos="fade-up" data-aos-delay="200">
+            <a href="https://www.facebook.com/share/akMRvPhoykLhDKEE/" target="_blank" class="">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://wa.me/09161438315" target="_blank" class="">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/p/DCzd1KIOpZ1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com/getomhi08" target="_blank" class="">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Oladosu Goodness Emmanuel. All rights reserved.</p>
+    </footer>
+</body>
+</html>
