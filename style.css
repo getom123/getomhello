@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: url('media/6e9dc620e0b49639c87cec0a1144a036.jpg'), center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+}
+p{
+    font-family: 'DM Sans', sans-serif;
+}
+.first_section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 10px;
+}
+#lottie-container{
+    width: 600px;
+    height: 600px;
+}
+.a_section,  .gbrand, .team_list, input, textarea{
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.11);
+    /* border-radius: 16px; */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.1px);
+    -webkit-backdrop-filter: blur(12.1px);
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+.a_section{
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 796px){
+    .container{
+        flex-direction: column-reverse;
+        margin: 20px;
+    }
+    #lottie-container{
+        width: 300px;
+        height: 300px;
+    }
+}
