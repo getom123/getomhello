@@ -252,12 +252,13 @@
     </div>
 
     <!-- form -->
-    <div class="a_section p-2" id="contact">   
-        <form class=" m-3 p-2 rounded-lg">
+    <div class="a_section p-2" id="contact"> 
+        <h1 class="text-center text-2xl text-white font-bold mt-5">Contact Us</h1>  
+        <form class=" m-3 p-2 rounded-lg" id="contact-form" action="https://formspree.io/f/xeoqlzyn" method="POST">
+            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+            <input type="email" id="email" name="email" class="block mb-2 p-2.5 w-full text-sm text-gray-50  rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">
             <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-            <input type="text" name="" id="" class="block mb-2 p-2.5 w-full text-sm text-gray-50  rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500">
-            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your message</label>
-            <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-50  rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Leave a comment..."></textarea>
+            <textarea id="message" name="message" rows="4" class="block p-2.5 w-full text-sm text-gray-50  rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Leave a comment..."></textarea>
 
             <div class="text-center">
                 <button type="submit" class="mt-3 px-6 py-2 bg-orange-500 text-white rounded shadow hover:bg-orange-700">Send</button>
